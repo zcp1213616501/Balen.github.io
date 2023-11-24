@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: nacos-consumer-openfegin
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    com.mashibing.cloudalibabaopenfeginconsumer8888.service.OpenFeginService: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

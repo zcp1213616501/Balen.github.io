@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: oder-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://192.168.189.129:81
+
+
+service-url:
+  nacos-user-service: http://nacos-provider #远程调用的服务名称 http://nacos-provider/msb/get
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include:'*'

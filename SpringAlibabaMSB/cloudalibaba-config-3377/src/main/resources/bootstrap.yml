@@ -1,0 +1,27 @@
+# nacos配置
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        extension-configs[0]: # shared-configs是一个列表，可以添加多个
+          data_id: redis.yml # dataid名字
+          group: DEFAULT_GROUP # 默认分组-如果使用默认的可以不写此项
+          refresh: true # 开启自动刷新功能，默认为false，必须搭配@RefreshScope注解使用
+
+
+
+
+#group: TEST_GROUP # 设置分组，拉取指定分组下的对应配置
+# ${prefix}-${spring.profiles.active}.${file-extension}
+# ${spring.application.name}-${spring.profiles.active}.${file-extension}
+# nacos-config-client-dev.yaml
+# nacos-config-client-test.yaml

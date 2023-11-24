@@ -1,0 +1,51 @@
+server:
+  port: 8801
+spring:
+  application:
+    name: seata-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.189.129:8848
+        group: "SEATA_GROUP"
+        namespace: ""
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_at?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    username: root
+    password: root
+    # type: com.alibaba.druid.pool.DruidDataSource
+
+#seata:
+#  tx-service-group: mygroup
+#  service:
+#    vgroup-mapping:
+#      mygroup: default
+#    grouplist:
+#      default: 192.168.189.129:8091
+seata:
+  tx-service-group: mygroup
+  service:
+    vgroup-mapping:
+      mygroup: default
+  application-id: seata-server
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 192.168.189.129:8848
+      group: "DEFAULT_GROUP"
+      namespace: "public"
+      username: "nacos"
+      password: "nacos"
+
+#  registry:
+#    type: nacos
+#    nacos:
+#      application: seata-server
+#      server-addr: 192.168.189.129:8848
+#      group : "SEATA_GROUP"
+#      namespace: ""
+#      username: "nacos"
+#      password: "nacos"
+

@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: provider-test
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        name: test
+        file-extension: yaml
+        namespace: c8a24a3d-d2d8-4197-9391-0645d830b503
+        group: DEV-GROUP
+        refresh-enabled: true
+
+      discovery:
+#        namespace: c8a24a3d-d2d8-4197-9391-0645d830b503
+#        group: DEV-GROUP
+        server-addr: localhost:8848
